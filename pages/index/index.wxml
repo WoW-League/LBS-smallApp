@@ -1,0 +1,36 @@
+<view class="index-title flex">
+  <view class="index-title-address">{{thisCity}}</view> 
+  <view class="index-title-infor"><image src="../images/icon-infor.png"></image></view>
+</view>
+<map id="myMap" longitude="{{wzLocation.longitude}}" latitude="{{wzLocation.latitude}}" bindcontroltap="controltap" controls="{{controls}}" show-location />
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="login-input-box">
+    <view class="input-box pos-rel" bindtap="chooseAdd">
+      <input type="text" disabled placeholder="当前地址" name="position" value="{{locationInfor}}" />
+      <image src="../images/per-tringle.jpg"></image>
+    </view>
+    <view class="input-box pos-rel" bindtap="repeairItem">
+      <input type="text" disabled placeholder="想要维修的项目" name="sids" value="{{synthesizeItem}}" />
+      <image src="../images/per-tringle.jpg"></image>
+    </view>
+    <view class="service-infor flex">
+      <view class="section">
+        <picker mode="multiSelector" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+              {{serviceDate}}  
+          </view>
+        </picker>
+      </view> 
+      <view bindtap="personInfro">个人信息</view>
+    </view>
+  </view>
+  <view class="none">
+    <input type="text" name="lng" value="{{wzLocation.longitude}}"></input>
+    <input type="text" name="lat" value="{{wzLocation.latitude}}"></input>
+    <input type="text" name="appoint" value="{{serviceDate}}"></input>
+    <input type="text" name="contact" value="{{mydata.userName}}"></input>
+    <input type="text" name="tel" value="{{mydata.userTel}}"></input>
+  </view>
+  <button class="disabled-btn active-btn" bindtap="immediatelyOrder" formType="submit"><text>立即下单</text></button>
+</form>   
+

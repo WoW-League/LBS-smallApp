@@ -1,0 +1,79 @@
+page {
+  font-size: 28rpx;
+}
+.order-state {
+  height: 78rpx;
+  line-height: 78rpx;
+  text-align: center;
+  background: #0a7edf;
+  color: #FFF;
+}
+.order-infor-box {
+  background: #FFF;
+  padding: 0 30rpx;
+  border-bottom: 2rpx solid #DDD;
+}
+.service-infor {
+  height: 140rpx;
+  border-bottom: 2rpx solid #DDD;
+}
+.service-infor image {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 100%;
+}
+.service-infor text {
+  color: #333;
+  margin-left: 20rpx;
+}
+.user-infor {
+  border-bottom: 2rpx solid #DDD; 
+}
+.user-infor:last-child,.user-infor view:last-child text:last-child {
+  border: none;
+}
+.user-infor view {
+  line-height: 100rpx;
+  display: flex;
+}
+.user-infor view text {
+  display: inline-block;
+}
+.user-infor view text:first-child {
+  width: 140rpx;
+  padding-left: 10rpx;
+  color: #888;
+}
+.user-infor view text:last-child {
+  width: 540rpx;
+  color: #333;
+  border-bottom: 2rpx solid #DDD;
+}
+.order-btn {
+  width: 100%;
+  height: 114rpx;
+  position: fixed;
+  bottom: 0;
+  background: #FFF;
+  justify-content: flex-end;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.order-btn view {
+  width: 164rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  background: none;
+  font-size: 28rpx;
+  padding: 0;
+  margin-left: 20rpx;
+}
+.order-btn view:first-child {
+  border: 2rpx solid #DDD;
+}
+.order-btn view:last-child {
+  color: #0a7edf;
+  border: 2rpx solid #0a7edf;
+}

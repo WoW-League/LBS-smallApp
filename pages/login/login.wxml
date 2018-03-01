@@ -1,0 +1,20 @@
+<!--pages/logs/logs.wxml-->
+<view class="lbs-headBox pos-rel">
+  <canvas canvas-id="myCanvas" style="width:178rpx;height:178rpx;"></canvas>
+  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+</view>
+<view class="login-input-box">
+  <view class="input-box pos-rel">
+    <input maxlength="11" type="number" placeholder="请输入手机号" value="{{inputValue}}" focus="{{focus}}" bindinput="bindKeyInput" />
+    <view class="delete-input {{toggleState}}" bindtap="deleteInput">
+      <image src="/pages/images/input-close.svg"></image>
+    </view>
+  </view>
+  <view class="input-box pos-rel {{secondInputState}}">
+    <input maxlength="4" type="number" placeholder="请输入验证码" focus="{{focus2}}" bindinput="bindKeyInput2" />
+    <view class="getCode-btn {{mainColor==true?'active-btn':''}}" bindtap="yanZhengInput">{{yzmText}}</view>
+  </view>
+</view>
+<view class="disabled-btn {{activeNext}}" bindtap="nextStep"><text>下一步</text></view>
+<view class="disabled-btn {{loginState==true?'none':''}} {{loginActive==true?'active-btn':''}}" bindtap="loginCode"><text>登录</text></view>
+

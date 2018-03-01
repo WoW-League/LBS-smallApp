@@ -1,0 +1,33 @@
+<!--pages/repair/repair.wxml-->
+<view class="repair-box flex">
+<!-- 一级分类 -->
+  <view class="item-box">
+    <text wx:for="{{firstItem}}" wx:key="{{item.service_items_id}}" data-title="{{item.service_items_title}}" data-index="{{item.service_items_id}}" bindtap="find1Item" class="{{item.service_items_id==item1Index?'active-item1':''}}">{{item.service_items_title}}</text>
+  </view>
+<!-- 二级分类 -->  
+  <view class="item-box">
+    <view wx:for="{{secondItem}}" wx:key="{{item.value}}" data-index="{{item.value}}" class="{{item.value==item1Index?'wode':'none'}}">
+      <text wx:for="{{item.children}}" wx:key="{{item.value}}" data-index="{{item.value}}" data-title="{{item.text}}" bindtap="find2Item" class="{{item.value==item2Index?'active-item2':''}}">{{item.text}}</text>
+    </view>
+  </view>
+<!-- 三级分类 -->
+  <view class="item-box">
+    <block wx:for="{{secondItem}}" wx:key="{{item.value}}">
+        <checkbox-group bindchange="checkboxChange" wx:for="{{item.children}}" wx:key="{{item.value}}" data-index="{{item.value}}" class="{{item.value==item2Index?'wode':'none'}}">
+          <label class="checkbox" wx:for="{{item.children}}" wx:key="{{item.value}}">
+            <checkbox value="{{item.text}}"/>{{item.text}}
+          </label>
+        </checkbox-group> 
+    </block>
+  </view>
+</view>
+<view class="confirmbox flex">
+  <view class="confirm-item flex">
+    <view>我要维修：</view>
+    <view>
+      <view>{{choose2Item}}</view>
+      <view>{{choose3Item}}</view>
+    </view>
+  </view>  
+  <view class="confirm-btn" bindtap="setItemStorage">确定</view>
+</view>

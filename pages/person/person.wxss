@@ -1,0 +1,78 @@
+/* pages/logs/logs.wxss */
+.head-infor {
+  height: 240rpx;
+  box-sizing: border-box;
+  padding-top: 28rpx;
+}
+.userinfo-avatar {
+  height: 120rpx;
+  width: 120rpx;
+  margin: 0 auto 28rpx; 
+  border-radius: 60rpx;
+}
+.userinfo-tel {
+  font-size: 36rpx;
+  color: #535353;
+  text-align: center;
+}
+.per-account {
+  height: 120rpx;
+  background: #FFF;
+}
+.per-account {
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.per-account-item {
+  width: 50%;
+  box-sizing: border-box;
+}
+.per-account-item:first-child {
+  border-right: 2rpx solid #DDD;
+}
+.per-account-item view:first-child {
+  color: #000;
+  font-size: 24rpx;
+}
+.per-account-item view:last-child {
+  color: #535353;
+  font-size: 28rpx;
+}
+.per-account-item view:first-child text {
+  color: #0a7edf;
+  font-size: 36rpx; 
+}
+.per-list {
+  padding-left: 30rpx;
+  background: #FFF;
+  margin-bottom: 20rpx;
+}
+.per-list-item {
+  height: 106rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  border-bottom: 2rpx solid #DDD;
+  position: relative;
+}
+.per-list-item image {
+  width: 10rpx;
+  height: 18rpx;
+  position: absolute;
+  top: 42rpx;
+  right: 30rpx;
+}
+.per-list-item:last-child {
+  border: none;
+}
+.per-list-item text {
+  line-height: 104rpx;
+}
+.log-out {
+  height: 94rpx;
+  background: #FFF;
+  text-align: center;
+  line-height: 94rpx;
+  font-size: 36rpx;
+  color: #0a7edf;
+}

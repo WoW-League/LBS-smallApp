@@ -1,0 +1,77 @@
+/* pages/order/order.wxss */
+.index-title {
+  height: 94rpx;
+  background: #FFF; 
+  justify-content: space-between;
+  font-size: 30rpx;
+  padding: 0 30rpx;
+  border-bottom: 2rpx solid #DDD;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+.index-title-address image {
+  width: 20rpx;
+  height: 12rpx;
+  display: inline-block;
+  vertical-align: 4rpx;
+  margin-left: 10rpx;
+}
+.index-title-infor image {
+  width: 38rpx;
+  height: 38rpx;
+  display: inline-block;
+}
+#myMap {
+  width: 100%;
+  height: 400rpx;
+}
+/* 登录 */
+.lbs-headBox {
+  width: 750rpx;
+  height: 334rpx;
+}
+.login-input-box {
+  border: 1rpx solid #DDD;
+  background: #FFF;
+  border-right: none;
+  border-left: none;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 0 28rpx;
+}
+.input-box,.service-infor {
+  width: 714rpx;
+  margin: 0 auto;
+}
+.input-box input {
+  height: 108rpx;
+  width: 550rpx;
+  font-size: 30rpx;
+  padding-left: 28rpx;
+  box-sizing: border-box;
+}
+.input-box image {
+  width: 10rpx;
+  height: 18rpx;
+  position: absolute;
+  right: 12rpx;
+  top: 44rpx;
+}
+.input-box:nth-child(2) {
+  border-top: 2rpx solid #efefef;
+  border-bottom: 2rpx solid #efefef;
+}
+.service-infor view {
+  width: 357rpx;
+  height: 108rpx;
+  line-height: 108rpx;
+  font-size: 30rpx;
+  text-align: center
+}
+.service-infor view:nth-child(1){
+  border-right: 1rpx solid #efefef;
+}
+.service-infor view:nth-child(2){
+  border-left: 1rpx solid #FFF;
+}
+.active-btn {
+  background: #078dff;
+}

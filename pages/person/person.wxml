@@ -1,0 +1,31 @@
+<!--pages/logs/logs.wxml-->
+<view class="head-infor">
+  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <view class="userinfo-tel">13641243628</view>
+</view>
+<view class="per-account flex">
+  <view class="per-account-item account-money">
+    <view><text>0.0</text>元</view>
+    <view>我的余额</view>
+  </view>
+  <view class="per-account-item account-integral">
+    <view><text>132</text>分</view>
+    <view>我的积分</view>
+  </view>
+</view>
+<view class="per-list">
+  <view class="per-list-item">
+    <text>关于我们</text>
+    <image src="../images/per-tringle.jpg"></image>
+  </view>
+  <view class="per-list-item">
+    <text>用户协议</text>
+    <image src="../images/per-tringle.jpg"></image>
+  </view>
+  <view class="per-list-item">
+    <text>联系客服</text>
+    <image src="../images/per-tringle.jpg"></image>
+  </view>
+</view>
+<view class="log-out">退出登录</view>
+

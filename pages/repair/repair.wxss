@@ -1,0 +1,73 @@
+/* pages/repair/repair.wxss */
+page {
+  width: 100%;
+  height: 100%;
+}
+.repair-box {
+  width: 100%;
+  height: 100%;  
+  align-items: flex-start;
+}
+.repair-box view.item-box {
+  width: 250rpx; 
+  height: 100%;   
+}
+.repair-box view.item-box:nth-child(1){
+  background: #FFF;
+  color: #626262;
+}
+.repair-box view.item-box:nth-child(2){
+  background: #97b1d2;
+  color: #FFF;
+}
+.repair-box view.item-box:nth-child(3){
+  background: #3c6cac;
+  color: #FFF;
+}
+.item-box text,.item-box label {
+  display: block;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 2rpx solid #CCC;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+.item-box text {
+  text-align: center;
+}
+.item-box label {
+  padding-left: 40rpx;
+}
+.active-item1 {
+  background: #97b1d2;
+  color: #FFF;
+}
+.active-item2 {
+  background: #3c6cac;
+}
+.item-box label checbox {
+  margin-top: -sax 20rpx;
+}
+.confirmbox {
+  position: absolute;
+  width: 750rpx;
+  height: 104rpx;
+  background: #FFCC66;
+  color: #FFF;
+  bottom: 0;
+}
+.confirm-item {
+  width: 500rpx;
+  padding-left: 40rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+}
+.confirm-btn {
+  width:250rpx;
+  text-align: center;
+  font-size: 40rpx;
+  background: #FFCC66;
+  color: #FFF;
+  height: 104rpx;
+  line-height: 104rpx;
+}

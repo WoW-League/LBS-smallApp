@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/test/test",
+    "pages/myinfor/myinfor",
+    "pages/order-detail/order-detail",
+    "pages/order/order",
+    "pages/person/person",
+    "pages/repair/repair"
+  ],
+  "window": {
+    "navigationBarTitleText": "Demo"
+  },
+  "tabBar": {
+    "color":"#000",
+    "selectedColor":"#1aad19",
+    "backgroundColor":"#FFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "pages/images/index-1.png",
+        "selectedIconPath": "pages/images/index-2.png",
+        "text": "下单"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单管理",
+        "iconPath": "pages/images/ord-1.png",        
+        "selectedIconPath": "pages/images/ord-2.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "我的",
+        "iconPath": "pages/images/per-1.png",        
+        "selectedIconPath": "pages/images/per-2.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

@@ -1,0 +1,169 @@
+<!--pages/order/order.wxml-->
+<view class="pos-rel">
+  <scroll-view scroll-x="true" class="order-item-box" scroll-left="{{scrollLeft}}">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">全部</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">进行中</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">待支付</view>
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">待接单</view>
+    <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">已完成</view>
+    <view class="swiper-tab-list {{currentTab==5 ? 'on' : ''}}" data-current="5" bindtap="swichNav">已取消</view>
+    <view class="swiper-tab-list {{currentTab==6 ? 'on' : ''}}" data-current="6" bindtap="swichNav">售后</view>
+  </scroll-view>  
+  <swiper class="swiper-order" current="{{currentTab}}" bindchange="bindChange" duration="300" style="height:{{winHeight}}rpx;">
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+        <view class="order-list-box" wx:for="{{orderList}}" wx:key="{{index}}" id="{{item.id}}" data-status="{{item.status}}">
+          <view class="order-list-top flex">
+            <view>
+              <text>{{item.cats[0]}}</text>
+               <!-- <text>预约</text>  -->
+              <text>{{item.create_time}}</text>
+            </view>
+            <view>{{orderState[item.status]}}</view>
+          </view>
+          <view class="order-list-middle">
+            <view>{{item.cats[1]}} > {{item.cats[2]}}</view>
+            <view>{{item.position}}</view>
+          </view>
+          <view class="order-litt-bottom flex">
+            <view>费用 ¥:{{item.money}}</view>
+            <view>再次下单</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+        <view class="order-list-box" wx:for="{{orderList}}" wx:if="{{item.status == 3?true:false}}" wx:key="{{index}}" id="{{item.id}}" data-status="{{item.status}}">
+          <view class="order-list-top flex">
+            <view>
+              <text>{{item.cats[0]}}</text>
+              <!-- <text>预约</text> -->
+              <text>{{item.create_time}}</text>
+            </view>
+            <view>{{orderState[3]}}</view>
+          </view>
+          <view class="order-list-middle">
+            <view>{{item.cats[1]}} > {{item.cats[2]}}</view>
+            <view>{{item.position}}</view>
+          </view>
+          <view class="order-litt-bottom flex">
+            <view>费用 ¥:{{item.money}}</view>
+            <view>再次下单</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+        <view class="order-list-box" wx:for="{{orderList}}" wx:if="{{item.status == 1?true:false}}" wx:key="{{index}}" id="{{item.id}}" data-status="{{item.status}}">
+          <view class="order-list-top flex">
+            <view>
+              <text>{{item.cats[0]}}</text>
+              <!-- <text>预约</text> -->
+              <text>{{item.create_time}}</text>
+            </view>
+            <view>{{orderState[1]}}</view>
+          </view>
+          <view class="order-list-middle">
+            <view>{{item.cats[1]}} > {{item.cats[2]}}</view>
+            <view>{{item.position}}</view>
+          </view>
+          <view class="order-litt-bottom flex">
+            <view>费用 ¥:{{item.money}}</view>
+            <view>再次下单</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+        <view class="order-list-box" wx:for="{{orderList}}" wx:if="{{item.status == 2?true:false}}" wx:key="{{index}}" id="{{item.id}}" data-status="{{item.status}}">
+          <view class="order-list-top flex">
+            <view>
+              <text>{{item.cats[0]}}</text>
+              <!-- <text>预约</text> -->
+              <text>{{item.create_time}}</text>
+            </view>
+            <view>{{orderState[2]}}</view>
+          </view>
+          <view class="order-list-middle">
+            <view>{{item.cats[1]}} > {{item.cats[2]}}</view>
+            <view>{{item.position}}</view>
+          </view>
+          <view class="order-litt-bottom flex">
+            <view>费用 ¥:{{item.money}}</view>
+            <view>再次下单</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+        <view class="order-list-box" wx:for="{{orderList}}" wx:if="{{item.status == 5?true:false}}" wx:key="{{index}}" id="{{item.id}}" data-status="{{item.status}}">
+          <view class="order-list-top flex">
+            <view>
+              <text>{{item.cats[0]}}</text>
+              <!-- <text>预约</text> -->
+              <text>{{item.create_time}}</text>
+            </view>
+            <view>{{orderState[5]}}</view>
+          </view>
+          <view class="order-list-middle">
+            <view>{{item.cats[1]}} > {{item.cats[2]}}</view>
+            <view>{{item.position}}</view>
+          </view>
+          <view class="order-litt-bottom flex">
+            <view>费用 ¥:{{item.money}}</view>
+            <view>再次下单</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+        <view class="order-list-box" wx:for="{{orderList}}" wx:if="{{item.status == 6?true:false}}" wx:key="{{index}}" id="{{item.id}}" data-status="{{item.status}}">
+          <view class="order-list-top flex">
+            <view>
+              <text>{{item.cats[0]}}</text>
+              <!-- <text>预约</text> -->
+              <text>{{item.create_time}}</text>
+            </view>
+            <view>{{orderState[6]}}</view>
+          </view>
+          <view class="order-list-middle">
+            <view>{{item.cats[1]}} > {{item.cats[2]}}</view>
+            <view>{{item.position}}</view>
+          </view>
+          <view class="order-litt-bottom flex">
+            <view>费用 ¥:{{item.money}}</view>
+            <view>再次下单</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+        <view class="order-list-box" wx:for="{{orderList}}" wx:if="{{item.status == 7?true:false}}" wx:key="{{index}}" id="{{item.id}}" data-status="{{item.status}}">
+          <view class="order-list-top flex">
+            <view>
+              <text>{{item.cats[0]}}</text>
+              <!-- <text>预约</text> -->
+              <text>{{item.create_time}}</text>
+            </view>
+            <view>{{orderState[7]}}</view>
+          </view>
+          <view class="order-list-middle">
+            <view>{{item.cats[1]}} > {{item.cats[2]}}</view>
+            <view>{{item.position}}</view>
+          </view>
+          <view class="order-litt-bottom flex">
+            <view>费用 ¥:{{item.money}}</view>
+            <view>再次下单</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 0.全部，1.待支付，2.待接单，3.进行中，4.待确定，5.已完成 , 6.已取消，7-售后 -->
