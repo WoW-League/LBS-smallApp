@@ -1,45 +1,61 @@
-<view class="order-state">正在派单</view>
-<view class="order-infor-box">
-  <view class="service-infor flex">
-    <image src="../images/per-1.png"></image>
-    <text>服务人员</text>    
+<image class="order-top-img" src="../images/order-top.jpg"></image>
+<view class="worker-box flex">
+  <view class="worker-info flex">
+    <image class="worker-header" src="{{orderInfor.head_icon}}"></image>
+    <view class="worker-info-person">
+      <view>{{orderInfor.name || (orderInfor.status == 6 ? '订单已关闭' : '稍后显示服务人员')}}</view>
+      <view class="flex {{orderInfor.stars ? '' : 'none'}}">
+        <image wx:for="{{orderInfor.stars}}" wx:key="idx" src="../images/order-star.png"></image>
+        <image wx:for="{{5-orderInfor.stars}}" wx:key="idx" src="../images/order-star-gray.png"></image>
+      </view>
+    </view>
   </view>
+  <view class="worker-phone-box {{orderInfor.name ? '' : 'none'}}" bindtap="callWorker"><image class="worker-phone" src="../images/order-phone.svg"></image></view>
+</view>
+<view class="order-infor-box">
   <view class="person-orderInfor-box">
     <view class="user-infor">
         <view>
           <text>订单状态</text>
-          <text>正在派单</text>
+          <text>{{orderState[orderInfor.status] || '正在派单'}}</text>
         </view>
         <view>
           <text>服务时间</text>
-          <text>2018-02-10 10:00</text>
+          <text>{{orderInfor.appoint || orderInfor.create_time}}</text>
         </view>
         <view>
           <text>服务位置</text>
-          <text>广奇财富中心B座（临汾市尧都区）</text>
+          <text>{{orderInfor.position}}</text>
         </view>
         <view>
           <text>服务类别</text>
-          <text>家居 > 保养 > 家居保养</text>
+          <text>{{serviceItem}}</text>
         </view> 
-        <view>
-          <text>问题描述</text>
-          <text>自行车没气了</text>
-        </view> 
+        <block wx:if="{{orderInfor.desc}}">
+          <view>
+            <text>问题描述</text>
+            <text>{{orderInfor.desc}}</text>
+          </view>
+        </block> 
     </view>
     <view class="user-infor">
       <view>
         <text>联系人</text>
-        <text>黄志雄</text>
+        <text>{{orderInfor.contact || orderInfor.contacts || '无'}}</text>
       </view>
       <view>
         <text>联系电话</text>
-        <text>13641243628</text>
+        <text>{{orderInfor.phone || orderInfor.tel}}</text>
       </view>
-    </view> 
+    </view>
   </view>
 </view>
-<view class="order-btn flex">
+<view class="actual-costs flex {{orderInfor.money ? '' : 'none'}}">
+  <view>实际费用</view>
+  <view bindtap="fareDetail"><text>{{orderInfor.money}}</text>元<image src="../images/per-tringle.jpg"></image></view>
+</view>
+<view class="order-btn flex {{orderInfor.status == 6 ? 'none' : ''}}">
   <view bindtap="calling">联系客服</view>
-  <view bindtap="cancelOrder">取消订单</view>
+  <view wx-if="{{orderInfor.status != 1 && orderInfor.status != 5}}" bindtap="cancelOrder">取消订单</view>
+  <view wx-if="{{orderInfor.status == 1}}" bindtap="toPay">去支付</view>
 </view>

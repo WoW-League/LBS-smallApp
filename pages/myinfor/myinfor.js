@@ -5,13 +5,14 @@ Page({
    */
   data: {
     userName:'',
-    userTel:''
+    userTel:'',
+    writePhone:''
   },
   setUserInfor:function(e){
     var event = e.currentTarget
     this.setData({
       userName: event.dataset.name,
-      userTel: event.dataset.tel
+      writePhone: event.dataset.tel
     })
   },
   setUserName: function (e) {
@@ -21,7 +22,7 @@ Page({
   },
   setUserTel: function (e) {
     this.setData({
-      userTel: e.detail.value
+      writePhone: e.detail.value
     })
   },
   confirmInfor: function () {
@@ -55,7 +56,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.setData({
+      userTel: wx.getStorageSync('phone')
+    })
   },
 
   /**

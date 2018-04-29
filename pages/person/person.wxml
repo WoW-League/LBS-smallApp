@@ -1,7 +1,8 @@
 <!--pages/logs/logs.wxml-->
+<canvas canvas-id="1"  class="canvas" />
 <view class="head-infor">
   <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-  <view class="userinfo-tel">13641243628</view>
+  <view class="userinfo-tel">{{userPhone}}</view>
 </view>
 <view class="per-account flex">
   <view class="per-account-item account-money">
@@ -14,18 +15,26 @@
   </view>
 </view>
 <view class="per-list">
-  <view class="per-list-item">
-    <text>关于我们</text>
-    <image src="../images/per-tringle.jpg"></image>
-  </view>
-  <view class="per-list-item">
+  <view class="per-list-item" bindtap="toProtocol">
+    <image class="identify" src="../images/person-2.png"></image>
     <text>用户协议</text>
-    <image src="../images/per-tringle.jpg"></image>
+    <image class="trangle" src="../images/per-tringle.jpg"></image>
   </view>
-  <view class="per-list-item">
+  <view class="per-list-item" bindtap="toKefu">
+      <image class="identify" src="../images/person-3.png"></image>
     <text>联系客服</text>
-    <image src="../images/per-tringle.jpg"></image>
+    <image class="trangle" src="../images/per-tringle.jpg"></image>
+  </view>
+  <view class="per-list-item" bindtap="toShare">
+    <image class="identify" src="../images/person-4.png"></image>
+    <text>推荐有礼</text>
+    <image class="trangle" src="../images/per-tringle.jpg"></image>
+  </view>
+  <view class="per-list-item" bindtap="setPassword">
+    <image class="identify" src="../images/person-5.png"></image>
+    <text>设置密码</text>
+    <image class="trangle" src="../images/per-tringle.jpg"></image>
   </view>
 </view>
-<view class="log-out">退出登录</view>
+<view class="log-out" bindtap="quitLogin">退出登录</view>
 

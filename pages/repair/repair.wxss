@@ -1,73 +1,113 @@
 /* pages/repair/repair.wxss */
 page {
-  width: 100%;
-  height: 100%;
+  background: #f3f3f3;
 }
 .repair-box {
   width: 100%;
   height: 100%;  
   align-items: flex-start;
 }
-.repair-box view.item-box {
+.repair-box view.item-box1 {
   width: 250rpx; 
-  height: 100%;   
+  height: 100%;
+  background: #FFF;   
 }
-.repair-box view.item-box:nth-child(1){
-  background: #FFF;
-  color: #626262;
-}
-.repair-box view.item-box:nth-child(2){
-  background: #97b1d2;
-  color: #FFF;
-}
-.repair-box view.item-box:nth-child(3){
-  background: #3c6cac;
-  color: #FFF;
-}
-.item-box text,.item-box label {
+.item-box1 text {
   display: block;
-  height: 100rpx;
-  line-height: 100rpx;
-  border-bottom: 2rpx solid #CCC;
+  height: 120rpx;
+  line-height: 120rpx;
+  border-bottom: 2rpx solid #e9e9e9;
   box-sizing: border-box;
-  font-size: 30rpx;
-}
-.item-box text {
+  font-size: 34rpx;
   text-align: center;
+  color: #333;
 }
-.item-box label {
-  padding-left: 40rpx;
+.item-box1 text.active-item1 {
+  background: #F5F5F5;
+  color: #078dff;
 }
-.active-item1 {
-  background: #97b1d2;
+.item-box2-second text.active-item2 {
+  background: #078dff;
   color: #FFF;
 }
-.active-item2 {
-  background: #3c6cac;
+/* 二三级分类 */
+.item-box2 {
+  width: 471rpx;
+  margin: 0 auto;
 }
-.item-box label checbox {
-  margin-top: -sax 20rpx;
+.item-box2-second,.item-box3-second {
+  background: #FFF;
 }
+.item-box2-second view,.item-box3-second checkbox-group {
+  flex-wrap: wrap;
+  overflow: hidden; 
+}
+.item-box2-second view text,.item-box3-second label {
+  text-align: center;
+  background: #FFF;
+  flex: 0 0 50%;
+  font-size: 30rpx;
+  line-height: 120rpx;
+  position: relative;
+  border-right: 1rpx solid #e9e9e9;
+  border-bottom: 1rpx solid #e9e9e9;
+  box-sizing: border-box;
+}
+.classify-tringle {
+  width: 466rpx;
+  height: 8rpx;
+}
+.item-box3-second {
+  border-top: 1rpx solid #e9e9e9;
+}
+.item-box3-second label {
+  line-height: 120rpx;
+}
+.item-box3-second label checkbox {
+  position: absolute; 
+  right: -6rpx;
+  bottom: 0; 
+  transform:scale(.7); 
+  line-height: normal;
+}
+/* 底部 */
 .confirmbox {
   position: absolute;
   width: 750rpx;
-  height: 104rpx;
-  background: #FFCC66;
-  color: #FFF;
+  height: 120rpx;
+  background: #FFF;
   bottom: 0;
+  border-top: 1rpx solid #e9e9e9;
 }
 .confirm-item {
-  width: 500rpx;
+  width: 520rpx;
+  color: #777;
   padding-left: 40rpx;
   font-size: 30rpx;
   box-sizing: border-box;
 }
 .confirm-btn {
-  width:250rpx;
+  width:230rpx;
   text-align: center;
   font-size: 40rpx;
-  background: #FFCC66;
+  background: #078dff;
   color: #FFF;
-  height: 104rpx;
-  line-height: 104rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.confirm-item-one {
+  white-space: nowrap;
+}
+.mb-20 {
+  margin-bottom: 20rpx;
+}
+textarea {
+  width: 100%;
+  height: 150rpx;
+  background: #FFF;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  box-shadow:1px 1px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 28rpx;
 }

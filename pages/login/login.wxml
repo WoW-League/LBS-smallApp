@@ -1,6 +1,5 @@
 <!--pages/logs/logs.wxml-->
 <view class="lbs-headBox pos-rel">
-  <canvas canvas-id="myCanvas" style="width:178rpx;height:178rpx;"></canvas>
   <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
 </view>
 <view class="login-input-box">

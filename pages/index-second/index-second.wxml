@@ -1,0 +1,27 @@
+<!--pages/index-second/index-second.wxml-->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+  <block wx:for="{{swiperimgUrls}}" wx:key="*this">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" height="200"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="choose-repair flex">
+  <view class="repair-item" wx:for="{{itemData}}" wx:key="{{item.service_items_id}}" data-title="{{item.service_items_title}}" data-index="{{item.service_items_id}}" bindtap="repairItem">
+    <image src="{{item.service_items_img}}" data-index="{{item.service_items_id}}"></image>
+    <text data-index="{{item.service_items_id}}">{{item.service_items_title}}</text>
+  </view>
+</view>
+<view class="index-bottom">
+  <view class="index-bottom-title">火速抢修</view>
+  <view class="index-bottom-adver flex">
+    <view class="advertising-l">
+      <image src="../images/advertising-l.jpg"></image>
+    </view>
+    <view class="advertising-r">
+      <image src="../images/advertising-rt.jpg"></image>
+      <image src="../images/advertising-rb.jpg"></image>
+    </view>
+  </view>
+</view>
+

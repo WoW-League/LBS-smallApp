@@ -5,12 +5,12 @@
   </view>
   <view class="input-item flex">
     <text>联系电话</text>
-    <input name="tel" maxlength="11" type="number" placeholder="手机或固话" bindinput="setUserTel"  value="{{userTel}}"/>
+    <input name="tel" maxlength="11" type="number" placeholder="手机或固话" bindinput="setUserTel"  value="{{writePhone}}"/>
   </view>
 </view>
 <view class="myinfor">
-  <view class="input-item" bindtap="setUserInfor" data-name="自己使用" data-tel="13641243628">
-    <view class="myself-text">自己使用(13641243628)</view>
+  <view class="input-item" bindtap="setUserInfor" data-name="自己使用" data-tel="{{userTel}}">
+    <view class="myself-text">自己使用({{userTel}})</view>
   </view>
 </view>
 <button class="disabled-btn active-btn" bindtap="confirmInfor"><text>确认</text></button>

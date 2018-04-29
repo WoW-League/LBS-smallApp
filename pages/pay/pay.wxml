@@ -1,0 +1,10 @@
+<!--pay.wxml-->
+<view class="pay-count">
+  <view><text class="pay-text">需支付</text><text class="money">{{payMoney}}</text>元</view>
+</view>
+<view class="choose-integral">
+  <checkbox-group bindchange="total">
+    <label class="flex">本次可使用{{integral}}积分抵{{integral/10}}元<checkbox color="#078dFF" value="{{integral/10}}"/></label>
+  </checkbox-group>
+</view>
+<button class="confirm-btn">确定</button>

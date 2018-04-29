@@ -38,22 +38,38 @@
   margin: 0 0 28rpx;
 }
 .input-box,.service-infor {
-  width: 714rpx;
+  width: 690rpx;
   margin: 0 auto;
+  position: relative;
 }
 .input-box input {
   height: 108rpx;
   width: 550rpx;
   font-size: 30rpx;
-  padding-left: 28rpx;
+  padding-left: 44rpx;
   box-sizing: border-box;
 }
-.input-box image {
+.input-box image:first-child {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  left: 0;
+  top: 39rpx;
+}
+.input-box image:last-child {
   width: 10rpx;
   height: 18rpx;
   position: absolute;
-  right: 12rpx;
+  right: 0;
   top: 44rpx;
+}
+.picker {
+  justify-content: center;
+}
+.picker image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: -2rpx 14rpx 0 0;
 }
 .input-box:nth-child(2) {
   border-top: 2rpx solid #efefef;
@@ -72,6 +88,30 @@
 .service-infor view:nth-child(2){
   border-left: 1rpx solid #FFF;
 }
+.infor-person {
+  justify-content: center;
+}
+.infor-person image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: -2rpx 14rpx 0 0;
+}
 .active-btn {
   background: #078dff;
+}
+textarea {
+  width: 100%;
+  height: 150rpx;
+  background: #FFF;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  padding: 20rpx 74rpx 20rpx;
+  box-shadow:1px 1px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 28rpx;
+}
+.againLocation {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #DDD;
 }

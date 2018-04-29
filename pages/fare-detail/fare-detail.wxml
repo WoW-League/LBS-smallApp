@@ -1,0 +1,20 @@
+<!--pages/fare-detail/fare-detail.wxml-->
+<view class="fare-box">
+  <view class="fare-box-title flex">
+    <view>订单实付费用</view>
+    <view>¥{{orderInfor.money}}</view>
+  </view>
+  <view class="fare-box-detail flex">
+    <view>预付费</view>
+    <view>¥{{orderInfor.pre_fee}}</view>
+  </view>
+  <view class="fare-box-detail flex">
+    <view>材料费</view>
+    <view>¥{{orderInfor.material_fee}}</view>
+  </view>
+  <view class="fare-box-detail flex">
+    <view>服务费</view>
+    <view>¥{{orderInfor.service_fee}}</view>
+  </view>
+</view>
+<image class="fare-tringle" src="../images/fare-tringle-bottom.png"></image>

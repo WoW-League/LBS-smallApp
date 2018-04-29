@@ -1,5 +1,5 @@
 // pages/logs/logs.js
-const app = getApp();
+var appInstance = getApp();
 Page({
   data: {
     activeNext:'',
@@ -67,6 +67,7 @@ Page({
     }
   },
   yanZhengInput: function(){
+    var that = this;
     var getChange = this.data.getChange;
     var n = 59;
     if (getChange) {
@@ -96,6 +97,28 @@ Page({
         }
         n--;
       }, 1000);
+      wx.request({
+        url: 'https://lbs.lanbanshou.com/index.php/api/sms/sendMessage',
+        method: 'GET',
+        data:{
+          phone: that.data.inputValue,
+          type: 2,
+        },
+        success: function(res){
+          wx.showToast({
+            title: '验证码发送成功',
+            icon: 'none',
+            duration: 2000
+          })
+        },
+        fail:function(res){
+          wx.showToast({
+            title: '手机号有误',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
     }
   },
   bindKeyInput2: function(e){
@@ -121,19 +144,11 @@ Page({
         duration: 2000
       })
     } else {
-      wx.switchTab({
-        url: '/pages/index/index'
-      })
+      appInstance.login(this.data.inputValue,this.data.codeText);
     }
   },
   onLoad: function () {
     var that = this
-    wx.getUserInfo({
-      success: function (res) {
-        that.setData({
-          userInfo:res.userInfo
-        });
-      }
-    });
+    appInstance.authHead(that);
   }
 })

@@ -1,30 +1,57 @@
 // pages/logs/logs.js
+var appInstance = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo:{}
+    userInfo:{},
+    userPhone: wx.getStorageSync('phone')
   },
-
+  quitLogin: function(){
+    wx.showModal({
+      content: '确认退出吗',
+      success: function (res) {
+        if (res.confirm) {
+          wx.removeStorageSync('token');
+          wx.clearStorage();
+          // 跳转首页
+          wx.redirectTo({
+            url: '/pages/login-password/login-password'
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })  
+  },
+  toProtocol: function(){
+    wx.navigateTo({
+      url: '../user-agreement/user-agreement',
+    })
+  },
+  toShare: function(){
+    wx.navigateTo({
+      url: '../recommend-gift/recommend-gift',
+    })
+  },
+  toKefu: function(){
+    wx.makePhoneCall({
+      phoneNumber: '0357-3236692',
+    })
+  },
+  setPassword: function(){
+    wx.navigateTo({
+      url: '../set-password/set-password',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getSetting({
-      success: (res) => {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: res => {
-              this.setData({
-                userInfo: res.userInfo
-              });
-            }
-          })
-        }
-      }
-    })
+    var that = this;
+    appInstance.authHead(that);
   },
 
   /**
@@ -38,7 +65,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.setData({
+      userPhone: wx.getStorageSync('phone')
+    })
   },
 
   /**

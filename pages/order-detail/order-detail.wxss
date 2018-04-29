@@ -1,12 +1,46 @@
 page {
   font-size: 28rpx;
 }
-.order-state {
-  height: 78rpx;
-  line-height: 78rpx;
-  text-align: center;
-  background: #0a7edf;
-  color: #FFF;
+.order-top-img {
+  width: 750rpx;
+  height: 180rpx;
+}
+.worker-box {
+  width: 750rpx;
+  height: 140rpx;
+  padding: 0 0 0 30rpx;
+  box-sizing: border-box;
+  background: #FFF;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #DDD;
+}
+.worker-info-person {
+  margin-left: 20rpx;
+}
+.worker-info-person view:first-child {
+  font-size: 26rpx;
+  color: #333;
+}
+.worker-info-person view:last-child image {
+  width: 22rpx;
+  height: 21rpx;
+  margin: 10rpx 8rpx 0 0;
+}
+.worker-header {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  border: 1rpx solid #DDD;
+  background: #FFF;
+}
+.worker-phone-box {
+  height: 100%;
+  width: 200rpx;
+}
+.worker-phone {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 40rpx auto;
 }
 .order-infor-box {
   background: #FFF;
@@ -33,7 +67,7 @@ page {
   border: none;
 }
 .user-infor view {
-  line-height: 100rpx;
+  line-height: 90rpx;
   display: flex;
 }
 .user-infor view text {
@@ -76,4 +110,32 @@ page {
 .order-btn view:last-child {
   color: #0a7edf;
   border: 2rpx solid #0a7edf;
+}
+.actual-costs {
+  line-height: 100rpx;
+  text-align: center;
+  padding: 0 30rpx;
+  background: #FFF;
+}
+.actual-costs view:first-child {
+  width:140rpx;
+  padding-left:10rpx;
+  color:#888;
+  text-align: left;
+}
+.actual-costs view:last-child {
+  width: 540rpx;
+  text-align: left; 
+  position: relative;
+}
+.actual-costs view:last-child text {
+  color: #f00;
+  margin: 0 10rpx;
+}
+.actual-costs view:last-child image {
+  width: 10rpx;
+  height: 18rpx;
+  position: absolute;
+  right: 0;
+  top: 41rpx;
 }

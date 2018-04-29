@@ -30,38 +30,43 @@
 }
 .order-list-box {
   background: #FFF;
-  padding-left: 28rpx;
   font-size: 28rpx;
   margin-bottom: 20rpx;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 .order-list-box:last-child {
   margin: 0;
 }
 .order-list-top {
-  height: 70rpx;
-  border-bottom: 1rpx solid #e3e3e3;
+  height: 74rpx;
+  padding: 0 30rpx;
+  color: #333;
+  border-bottom: 2rpx solid #EEE;
   justify-content: space-between;
 }
 .order-list-top view:nth-child(1) text:nth-child(1) {
+  font-size: 32rpx;
   display: inline-block;
-  margin-right: 40rpx;
-  color: #0a7edf;
-}
-.order-list-top view:nth-child(1) text:nth-child(3) {
-  margin-left: 20rpx;
+  margin-right: 30rpx;
 }
 .order-list-top view:nth-child(2) {
-  padding-right: 28rpx;
-  color: #da3a5b;
+  color: #666;
 }
 .order-list-middle {
-  padding-left: 100rpx;
+  color: #555;
+  padding: 15rpx 30rpx;
+}
+.order-icon-img {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 15rpx 0 0;
 }
 .order-list-middle view {
-  line-height: 70rpx;
+  line-height: 60rpx;
 }
 .order-litt-bottom {
   height: 80rpx;
+  padding-left: 30rpx;
   justify-content: space-between;
   padding-right: 28rpx;
   border-top: 1rpx solid #e3e3e3;
@@ -69,7 +74,7 @@
 .order-litt-bottom view:nth-child(2) {
   width: 134rpx;
   height: 48rpx;
-  border: 2rpx solid #CCC;
+  border: 1rpx solid #555;
   text-align: center;
   line-height: 48rpx;
   border-radius: 3px;

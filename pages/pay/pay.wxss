@@ -1,0 +1,51 @@
+/* pay.wxss */
+page {
+  background: #FFF;
+}
+.pay-count {
+  height: 214rpx;
+  text-align: center;
+  color: #555;
+  font-size: 30rpx;
+}
+.pay-count view{
+  color: #078dFF;
+  line-height: 214rpx;
+  border-bottom: 2rpx solid #EEE;
+}
+.pay-count view text.pay-text {
+  color: #555;
+}
+.pay-count view text.money {
+  font-size: 56rpx;
+  margin: 0 20rpx; 
+}
+.choose-integral {
+  line-height: 140rpx; 
+  border-bottom: 2rpx solid #EEE;
+  font-size: 30rpx;
+  color: #555;
+  padding: 0 50rpx;
+  margin-bottom: 40rpx;
+}
+.choose-integral label {
+  width: 100%;
+  position: relative;
+}
+.choose-integral label checkbox .wx-checkbox-input {
+  transform: scale(.8);
+  position: absolute;
+  right: -10rpx;
+  margin-top: -4rpx;
+  border: 1rpx solid #078dFF;
+}
+.confirm-btn {
+  border: 0;
+  height: 94rpx;
+  line-height: 94rpx;
+  border-radius: 46rpx;
+  background: #078dff;
+  color: #FFF;
+  font-size: 30rpx;
+  width: 588rpx;
+}

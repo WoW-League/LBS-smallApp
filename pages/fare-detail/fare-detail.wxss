@@ -1,0 +1,36 @@
+/* pages/fare-detail/fare-detail.wxss */
+.fare-box-title,.fare-box-detail {
+  line-height: 90rpx;
+  padding: 0 0 0 30rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #DDD;
+  background: #FFF;
+}
+.fare-box-title view:first-child {
+  color: #333;
+  font-size: 28rpx;
+}
+.fare-box-title view:last-child {
+  width: 160rpx;
+  text-align: left;
+  color: #333;
+  font-size: 28rpx;
+}
+.fare-box-detail {
+  border: 0;
+}
+.fare-box-detail view:first-child {
+  font-size: 28rpx;
+  color: #777;
+}
+.fare-box-detail view:last-child {
+  width: 160rpx;
+  text-align: left;
+  color: #333;
+  font-size: 28rpx;
+}
+.fare-tringle {
+  width: 750rpx;
+  height: 8rpx;
+}

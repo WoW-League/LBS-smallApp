@@ -1,0 +1,11 @@
+<!--pages/recommend-gift/recommend-gift.wxml-->
+<image class="bj-gift" src="../images/guanzhuhonbao-bj.jpg"></image>
+<view class="blank"></view>
+<view class="platform-detail">
+  <view>《蓝扳手》专业维修服务平台，您的生活服务管家，关注《蓝扳手》公众号！！注册用户。有备而无患～只要你有维修需求，一键下单，维修工即刻上门，为您排忧解难！安全、快捷、实惠！！</view>
+  <view>维修工公众号内下载维修工端，快速抢单，有无店面都能赚钱。</view>
+  <view>服务内容：家电、开锁、水暖、家政、电动车……等等 转发更有精美礼品～～（礼品详情敬请公众号内查看）好朋友们转发起来！方便你、我、他……！</view>
+</view>
+<form>
+  <button class="prototyoe-btn" open-type="share">分享给朋友,领取现金红包</button>
+</form>

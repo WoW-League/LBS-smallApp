@@ -1,8 +1,15 @@
-const date = new Date()
 const hours = []
 const hours2 = []
-const nowHours = date.getHours()
-const nowDay = date.getDay()
+const date = new Date()
+const nowYear = date.getFullYear()//获取年
+const nowMonth = fillZero(date.getMonth()+1)//获取月
+const nowDay = fillZero(date.getDate())//获取日
+const nowHours = fillZero(date.getHours())//小时
+const nowMinutes = fillZero(date.getMinutes())//分钟
+const nowSeconds = fillZero(date.getSeconds()) //获取秒
+function fillZero(s) {
+  return s < 10 ? '0' + s : s;
+};
 for (let i = nowHours; i <= 23; i++) {
   hours.push(i + '点')
 }
@@ -23,6 +30,8 @@ Page({
     multiArray: [['今天', '明天', '后天'], hours, ['']],
     multiIndex: [0, 0, 0],
     serviceDate: '现在上门',
+    ruleDate: nowYear + '-' + nowMonth + '-' + nowDay + ' ' + nowHours + ':' + nowMinutes + ':' + nowSeconds,
+    sids: [],
     controls: [{
       id: 1,
       iconPath: '../images/location.png',
@@ -41,7 +50,8 @@ Page({
       success: function (res) {
         console.log(res);
         that.setData({
-          locationInfor: res.name
+          locationInfor: res.name,
+          wzLocation:res
         })
       }
     })
@@ -52,6 +62,7 @@ Page({
     })
   },
   bindMultiPickerColumnChange: function (e) {
+    var that = this;
     var data = {
       multiArray: this.data.multiArray,
       multiIndex: this.data.multiIndex,
@@ -92,12 +103,45 @@ Page({
     this.setData(data);
     var appointDay = (this.data.multiArray[0][this.data.multiIndex[0]]).replace('现在', nowHours);
     var appointHours = (this.data.multiArray[1][this.data.multiIndex[1]]).replace('点', ':');
-    var appointMinutes = (this.data.multiArray[2][this.data.multiIndex[2]]).replace('分', ' ');
+    var appointMinutes = (this.data.multiArray[2][this.data.multiIndex[2]]).replace('分', '');
     var appointDate = appointDay + ' ' + appointHours + appointMinutes
     
     this.setData({
       serviceDate: appointDate.replace('今天 现在', '现在上门')
     })
+    // 2018 - 04 - 02 16:26:00
+      //num 0 今天 1 明天 2后天
+      //nowYester 0 现在时间 其他 选择的时间
+    function getRiqi(num,nowYester){
+      if (nowYester == 1){
+        return nowYear + '-' + nowMonth + '-' + (nowDay + num) + ' ' + that.fillZero(parseInt(appointHours)) + ':' + appointMinutes + ':' + nowSeconds;
+      } else{
+        return nowYear + '-' + nowMonth + '-' + nowDay + ' ' + nowHours + ':' + nowMinutes + ':' + nowSeconds;
+      }
+     
+    } 
+    if (appointDay == '今天'){
+      if (appointHours == '现在'){
+        this.setData({
+          ruleDate: getRiqi(0, 0)
+        })
+      } else{
+        this.setData({
+          ruleDate: getRiqi(0,1)
+        })
+      }
+      console.log(this.data.ruleDate);
+    } else if (appointDay == '明天'){
+      this.setData({
+        ruleDate: getRiqi(1,1)
+      })
+      console.log(getRiqi(1,1));
+    } else if (appointDay == '后天'){
+      this.setData({
+        ruleDate: getRiqi(2,1)
+      })
+      console.log(getRiqi(2,1));
+    }
   },
   bindDateChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -113,13 +157,90 @@ Page({
       url: '../myinfor/myinfor',
     })
   },
-  immediatelyOrder:function(){
-    wx.navigateTo({
-      url: '../order-detail/order-detail'
-    })
+  fillZero: function (s) {
+    return s < 10 ? '0' + s : s;
   },
   formSubmit: function (e) {
+    var that = this;
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var infor = e.detail.value;
+    if (infor.sidsText == ''){
+      wx.showToast({
+        title: '没选维修项目哦',
+        icon: 'none'
+      }) 
+    } else {
+      wx.request({
+        url: 'https://lbs.lanbanshou.com/index.php/api/order/makeRequire',
+        data: e.detail.value,
+        header: {
+          'token': wx.getStorageSync('token') // 默认值
+        },
+        method: "POST",
+        success: function (res) {
+          if (res.data.code == 0) {
+            wx.showModal({
+              content: '令牌失效请重新登录吧！',
+              success: function (res) {
+                if (res.confirm) {
+                  wx.navigateTo({
+                    url: '../login-password/login-password',
+                  })
+                } else if (res.cancel) {
+                  wx.showToast({
+                    title: '不能下单了哟',
+                    icon: 'none',
+                    duration: 2000
+                  })
+                }
+              }
+            })
+          } else if (res.data.code == 200) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'success',
+              duration: 2000,
+              success: function () {
+                wx.setStorage({
+                  key: "orderInfor",
+                  data: infor,
+                  success: function () {
+                    wx.navigateTo({
+                      url: '../order-detail/order-detail',
+                      success: function () {
+                        wx.removeStorage({
+                          key: 'chooseItem',
+                          success: function () {
+                            that.setData({
+                              synthesizeItem: ''
+                            })
+                          }
+                        });
+                        wx.removeStorage({
+                          key: 'chooseIndex',
+                          success: function () {
+                            that.setData({
+                              sids: ''
+                            })
+                          }
+                        });
+                      }
+                    })
+                  }
+                })              
+              }
+            })
+          } else if (res.data.code == 404) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 2000
+            })
+          }
+          console.log(res.data)
+        }
+      })
+    }
   },
   onLoad: function(){
     var that = this;
@@ -157,16 +278,27 @@ Page({
     });
   },
   onShow: function(){
+    this.setData({
+      uid: wx.getStorageSync('uid'),
+      tel: wx.getStorageSync('phone'),
+    })
     var that = this;
     wx.getStorage({
       key: 'chooseItem',
       success: function (res) {
+        var repairItem = res.data.split('>');
+        console.log(repairItem);
         that.setData({
           synthesizeItem: res.data
-        },function(){
-          wx.removeStorage({
-            key: 'chooseItem'
-          })
+        })
+      }
+    })
+    wx.getStorage({
+      key: 'chooseIndex',
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          sids: res.data
         })
       }
     })
@@ -178,6 +310,9 @@ Page({
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
+        console.log(res)
+        wx.setStorage({ key: "latitude", data: res.latitude });
+        wx.setStorage({ key: "longitude", data: res.longitude });
         //逆地址解析
         qqmapsdk.reverseGeocoder({
           location: {

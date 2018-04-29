@@ -1,0 +1,10 @@
+/* pages/user-agreement/user-agreement.wxss */
+.protocol {
+  font-size: 24rpx;
+  padding: 20rpx;
+  background: #FFF;
+  text-indent: 48rpx;
+}
+.protocol text {
+  line-height: 40rpx;
+}

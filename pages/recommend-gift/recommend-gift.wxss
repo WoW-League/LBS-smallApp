@@ -1,0 +1,42 @@
+/* pages/recommend-gift/recommend-gift.wxss */
+.bj-gift {
+  width: 750rpx;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  z-index: -1;
+}
+.blank {
+  height: 350rpx;
+}
+.platform-detail {
+  font-size: 28rpx;
+  background: #f7f7f7;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  width: 650rpx;
+  margin: 0 auto 46rpx;
+  padding: 44rpx 30rpx;
+}
+
+.platform-detail view {
+  margin-bottom: 12rpx;
+  line-height: 36rpx;
+  color: #333;
+  text-indent: 48rpx;
+  position: relative;
+}
+
+.prototyoe-btn {
+  display: block;
+  background: #df053e;
+  text-align: center;
+  font-size: 36rpx;
+  color: #fff;
+  width: 650rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  background: #df053e;
+}

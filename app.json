@@ -1,38 +1,47 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/login/login",
-    "pages/test/test",
-    "pages/myinfor/myinfor",
-    "pages/order-detail/order-detail",
-    "pages/order/order",
     "pages/person/person",
-    "pages/repair/repair"
+    "pages/set-password/set-password",
+    "pages/myinfor/myinfor",
+    "pages/login/login",
+    "pages/order/order",
+    "pages/order-detail/order-detail",
+    "pages/repair/repair",
+    "pages/user-agreement/user-agreement",
+    "pages/recommend-gift/recommend-gift",
+    "pages/login-password/login-password",
+    "pages/index-second/index-second",
+    "pages/fare-detail/fare-detail",
+    "pages/pay/pay",
+    "pages/test/test",
+    "pages/about-we/about-we"
   ],
   "window": {
-    "navigationBarTitleText": "Demo"
+    "navigationBarTitleText": "Demo",
+    "onReachBottomDistance": 100
   },
   "tabBar": {
-    "color":"#000",
-    "selectedColor":"#1aad19",
-    "backgroundColor":"#FFF",
+    "color": "#000",
+    "selectedColor": "#1aad19",
+    "backgroundColor": "#FFF",
     "list": [
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单管理",
+        "iconPath": "pages/images/ord-1.png",
+        "selectedIconPath": "pages/images/ord-2.png"
+      },
       {
         "pagePath": "pages/index/index",
         "iconPath": "pages/images/index-1.png",
         "selectedIconPath": "pages/images/index-2.png",
-        "text": "下单"
-      },
-      {
-        "pagePath": "pages/order/order",
-        "text": "订单管理",
-        "iconPath": "pages/images/ord-1.png",        
-        "selectedIconPath": "pages/images/ord-2.png"
+        "text": "找维修"
       },
       {
         "pagePath": "pages/person/person",
         "text": "我的",
-        "iconPath": "pages/images/per-1.png",        
+        "iconPath": "pages/images/per-1.png",
         "selectedIconPath": "pages/images/per-2.png"
       }
     ]
